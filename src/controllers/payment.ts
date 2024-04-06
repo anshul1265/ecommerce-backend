@@ -56,10 +56,11 @@ export const createPaymentIntent = TryCatch(async (req, res, next) => {
   if (!amount) return next(new ErrorHandler("Please enter the amount", 400));
   const defaultCustomerName = "Default Name";
   const defaultAddress = {
-    line1: "123 Street",
+    address: "123 Street",
     city: "City",
-    postal_code: "12345",
-    country: "IN",
+    state: "state",
+    pinCode: "12345",
+    country: "India",
   };
   const customer = await stripe.customers.create({
     name: defaultCustomerName,
